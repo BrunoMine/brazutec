@@ -1,6 +1,5 @@
 -- Interface principal do Laptop
 
-<<<<<<< HEAD
 -- Slots de aplicativos do laptop
 local brazutec_slot1_imagem = ""
 local brazutec_slot1_formspec = ""
@@ -19,10 +18,9 @@ brazutec_laptop = {
 		"bgcolor[#080808BB;true]"..
 		"image[0,0;15,10;brazutec_desktop.png]"..
 		"image[0,0;5,5;"..brazutec_slot1_imagem.."]",
-=======
+
 brazutec_laptop = { -- Formspec do laptop
 	desktop = "size[12,9]".. -- Desktop
 		"bgcolor[#080808BB;true]"..
 		"image[0,0;15,10;brazutec_desktop.png]",
->>>>>>> origin/master
 }
