@@ -6,7 +6,7 @@ local brazutec_slot1_formspec = ""
 
 -- Instalador de aplicativos
 function brazutec_instalar_em_laptop(textura)
-	local brazutec_slot1_imagem = textura;
+	brazutec_slot1_imagem = textura;
 	minetest.chat_send_all("Comando brazutec iniciado")
 	minetest.chat_send_all("Valor de brazutec_slot1_imagem eh " ..brazutec_slot1_imagem)
 	-- Agora ocorre a distribuição dos apps no laptop
