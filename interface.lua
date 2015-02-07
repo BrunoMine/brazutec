@@ -14,12 +14,9 @@ local brazutec_slot5_formspec = "brazutec_laptop.slotlivre"
 local brazutec_slot6_imagem = "brazutec_botao_slotlivre.png"
 local brazutec_slot6_formspec = "brazutec_laptop.slotlivre"
 brazutec_laptop = {
-	desktop = "size[12,9]".. -- Desktop
-		"bgcolor[#080808BB;true]"..
-		"image[0,0;15,10;brazutec_desktop.png]"..
-		"image[0,0;5,5;"..brazutec_slot1_imagem.."]",
+	desktop = {},
 	slotlivre = "size[5,6]".. -- Slot Livre
-		"bgcolor[#080808BB;true]"..
+		"label[0.5,0.5;Slot livre para adicionar aplicativos]"..
 		"image[0.5,0.5;4,4;brazutec_botao_slotlivre.png]",
 }
 
@@ -68,23 +65,24 @@ function brazutec_instalar_em_laptop(textura, formspec)
 end
 
 -- Funcoes dos botoes dos slots
-minetest.register_on_player_receive_fields(function(player,meta,fields)
+minetest.register_on_player_receive_fields(function(player, fields)
 	if fields.brazutec_slot1_botao then
 		minetest.show_formspec(player:get_player_name(), "", brazutec_slot1_formspec)
 	end
-	if fields.brazutec_slot2_botao then --Vai para aventuras
+	if fields.brazutec_slot2_botao then
 		minetest.show_formspec(player:get_player_name(), "", brazutec_slot2_formspec)
 	end
-	if fields.brazutec_slot3_botao then --Vai para casas
+	if fields.brazutec_slot3_botao then
 		minetest.show_formspec(player:get_player_name(), "", brazutec_slot3_formspec)
 	end
-	if fields.brazutec_slot4_botao then --Vai para macros
+	if fields.brazutec_slot4_botao then
 		minetest.show_formspec(player:get_player_name(), "", brazutec_slot4_formspec)
 	end
-	if fields.brazutec_slot5_botao then --Vai para bussolas
+	if fields.brazutec_slot5_botao then
 		minetest.show_formspec(player:get_player_name(), "", brazutec_slot5_formspec)
 	end
-	if fields.brazutec_slot6_botao then --Vai para receitas
+	if fields.brazutec_slot6_botao then
 		minetest.show_formspec(player:get_player_name(), "", brazutec_slot6_formspec)
 	end
+	return true
 end)
