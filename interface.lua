@@ -3,12 +3,21 @@
 -- Slots de aplicativos do laptop
 local brazutec_slot1_imagem = ""
 local brazutec_slot1_formspec = ""
+local brazutec_slot2_imagem = ""
+local brazutec_slot2_formspec = ""
+local brazutec_slot3_imagem = ""
+local brazutec_slot3_formspec = ""
+local brazutec_slot4_imagem = ""
+local brazutec_slot4_formspec = ""
+local brazutec_slot5_imagem = ""
+local brazutec_slot5_formspec = ""
+local brazutec_slot6_imagem = ""
+local brazutec_slot6_formspec = ""
 
 -- Instalador de aplicativos
-function brazutec_instalar_em_laptop(textura)
+function brazutec_instalar_em_laptop(textura, formspec)
 	brazutec_slot1_imagem = textura;
-	minetest.chat_send_all("Comando brazutec iniciado")
-	minetest.chat_send_all("Valor de brazutec_slot1_imagem eh " ..brazutec_slot1_imagem)
+	brazutec_slot6_formspec = formspec;
 	-- Agora ocorre a distribuição dos apps no laptop
 end
 
@@ -18,4 +27,9 @@ brazutec_laptop = {
 		"bgcolor[#080808BB;true]"..
 		"image[0,0;15,10;brazutec_desktop.png]"..
 		"image[0,0;5,5;"..brazutec_slot1_imagem.."]",
+		"image[0,0;5,5;"..brazutec_slot2_imagem.."]",
+		"image[0,0;5,5;"..brazutec_slot3_imagem.."]",
+		"image[0,0;5,5;"..brazutec_slot4_imagem.."]",
+		"image[0,0;5,5;"..brazutec_slot5_imagem.."]",
+		"image[0,0;5,5;"..brazutec_slot6_imagem.."]",
 }
