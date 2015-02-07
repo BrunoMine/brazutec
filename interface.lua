@@ -17,7 +17,7 @@ local brazutec_slot6_formspec = ""
 -- Instalador de aplicativos
 function brazutec_instalar_em_laptop(textura, formspec)
 	brazutec_slot1_imagem = textura;
-	brazutec_slot6_formspec = formspec;
+	brazutec_slot1_formspec = formspec;
 	-- Agora ocorre a distribuição dos apps no laptop
 end
 
