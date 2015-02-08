@@ -1,7 +1,8 @@
 -- Inicializando mod
 
-print(" Carregando mod brazutec... ")
+print("[Brazutec] Carregando mod brazutec... ")
 dofile(minetest.get_modpath("brazutec").."/node.lua")
-print(" Laptop carregado... ")
+print("[Brazutec] Laptop carregado... ")
 dofile(minetest.get_modpath("brazutec").."/interface.lua")
-print(" Interface principal carregada... ")
+print("[Brazutec] Interface principal carregada... ")
+print("[Brazutec] OK")
