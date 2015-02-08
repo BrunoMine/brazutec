@@ -1,5 +1,4 @@
--- Node do CUB
-
+-- Nó do CUB
 
 -- Função de verificação de dono
 local function verificar_dono(meta, player)
@@ -9,7 +8,7 @@ local function verificar_dono(meta, player)
 	return true
 end
 
--- CUB em estado normal
+-- CUB aberto
 minetest.register_node("brazutec:cub_aberto", {
 	description = "Laptop CUB",
 	drawtype = "nodebox",
@@ -120,7 +119,7 @@ minetest.register_node("brazutec:cub_fechado", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
--- CUB (Descarregado) aberto
+-- CUB aberto (Descarregado)
 minetest.register_node("brazutec:cub_descarregado_aberto", {
 	description = "Laptop CUB (Descarregado)",
 	drawtype = "nodebox",
