@@ -1,4 +1,6 @@
+--
 -- Interface principal do Laptop
+--
 
 -- Slots de aplicativos do laptop
 local brazutec_slot1_imagem = ""
