@@ -1,4 +1,6 @@
+--
 -- Nó do CUB
+--
 
 -- Função de verificação de dono
 local function verificar_dono(meta, player)
@@ -65,7 +67,7 @@ minetest.register_node("brazutec:cub_aberto", {
 		meta:set_string("dono", player)
 	end,
 	is_ground_content = true,
-	groups = {snappy=2, choppy=2, oddly_breakable_by_hand=2},
+	groups = {not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 	drop = "brazutec:cub_fechado",
 })
@@ -106,7 +108,7 @@ minetest.register_node("brazutec:cub_fechado", {
 			meta:set_string("dono", clicker:get_player_name())
 			meta:set_int("tempo_bateria", 0)
 			local tempo  = minetest.get_node_timer(pos)
-			tempo:start(180)
+			tempo:start(250)
 		end
     end,
     can_dig = function(pos, player)
@@ -115,7 +117,7 @@ minetest.register_node("brazutec:cub_fechado", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_fechado",
-	groups = {snappy=2, choppy=2, oddly_breakable_by_hand=2 },
+	groups = {oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -156,13 +158,26 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 			meta:set_string("dono", clicker:get_player_name())
 		end
     end,
+    on_rightclick = function (pos, node, clicker, itemstack)
+		local meta = minetest.get_meta(pos)
+		if verificar_dono(meta, clicker) then
+			local item = itemstack:get_name()
+			if item == brazutec_baterialaptop then
+				itemstack:take_item()
+				node.name = "brazutec:cub_aberto"
+				minetest.env:set_node(pos, node)
+				nodeupdate(pos)
+				meta:set_string("dono", clicker:get_player_name())
+			end
+		end
+    end,
     can_dig = function(pos, player)
 		local meta = minetest.get_meta(pos)
 		return verificar_dono(meta, player)
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {snappy=2, choppy=2, oddly_breakable_by_hand=2},
+	groups = {not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -202,12 +217,25 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 			meta:set_string("dono", clicker:get_player_name())
 		end
     end,
+    on_rightclick = function (pos, node, clicker, itemstack)
+		local meta = minetest.get_meta(pos)
+		if verificar_dono(meta, clicker) then
+			local item = itemstack:get_name()
+			if item == brazutec_baterialaptop then
+				itemstack:take_item()
+				node.name = "brazutec:cub_aberto"
+				minetest.env:set_node(pos, node)
+				nodeupdate(pos)
+				meta:set_string("dono", clicker:get_player_name())
+			end
+		end
+    end,
     can_dig = function(pos, player)
 		local meta = minetest.get_meta(pos)
 		return verificar_dono(meta, player)
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {snappy=2, choppy=2, oddly_breakable_by_hand=2 },
+	groups = {not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 })
