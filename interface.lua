@@ -28,7 +28,7 @@ brazutec_laptop = {
 }
 
 -- Instalador de aplicativos
-function brazutec_instalar_em_laptop(textura, etiqueta)
+function brazutec_instalar_em_cub(textura, etiqueta)
 	if brazutec_slot1_imagem == "" then
 		brazutec_slot1_imagem = textura
 		brazutec_slot1_etiqueta = etiqueta
