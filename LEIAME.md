@@ -1,4 +1,4 @@
-Brazukatec
+Brazukatec 1.0
 ==========
 Criado por BrunoMine
 Comunidade Minetestbr
