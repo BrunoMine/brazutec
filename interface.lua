@@ -24,7 +24,7 @@ brazutec_laptop = {
 			"label[0.5,0.5;Nenhum aplicativo instalado]"..
 			"image[0.5,1;5,5;brazutec_botao_semapps.png]"..
 			"label[0.5,5.5;Encontre aplicativos no site]"..
-			"label[0.5,6;site]",
+			"label[0.5,6;brazutec.blogspot.com]",
 }
 
 -- Instalador de aplicativos
