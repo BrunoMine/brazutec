@@ -141,5 +141,10 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		if fields.brazutec_excessodeapps_etiqueta then
 			minetest.show_formspec(player:get_player_name(), "brazutec_laptop", brazutec_laptop.excessodeapps)
 		end
+		if fields.brazutec_openmailbox then
+			if lunocartas~=nil then
+				lunocartas.openinbox(player:get_player_name())
+			end
+		end
 	end
 end)
