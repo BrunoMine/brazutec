@@ -133,11 +133,13 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 end
 
 -- Funcoes dos botoes para ocorrencias
-minetest.register_on_player_receive_fields(function(player, meta, fields)
-	if fields.brazutec_semapps_etiqueta then
-		minetest.show_formspec(player:get_player_name(), "", brazutec_laptop.semapps)
-	end
-	if fields.brazutec_excessodeapps_etiqueta then
-		minetest.show_formspec(player:get_player_name(), "", brazutec_laptop.excessodeapps)
+minetest.register_on_player_receive_fields(function(player, formname, fields)
+	if formname=="brazutec_laptop" then
+		if fields.brazutec_semapps_etiqueta then
+			minetest.show_formspec(player:get_player_name(), "brazutec_laptop", brazutec_laptop.semapps)
+		end
+		if fields.brazutec_excessodeapps_etiqueta then
+			minetest.show_formspec(player:get_player_name(), "brazutec_laptop", brazutec_laptop.excessodeapps)
+		end
 	end
 end)
