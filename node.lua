@@ -50,7 +50,7 @@ minetest.register_node("brazutec:cub_aberto", {
     on_rightclick = function (pos, node, clicker)
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) then
-			minetest.show_formspec(clicker:get_player_name(), "", brazutec_laptop.desktop)
+			minetest.show_formspec(clicker:get_player_name(), "brazutec_laptop", brazutec_laptop.desktop)
 		end
     end,
     can_dig = function(pos, player)
