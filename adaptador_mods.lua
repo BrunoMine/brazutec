@@ -1,3 +1,0 @@
---
--- Adaptador de mods
---
