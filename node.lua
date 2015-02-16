@@ -67,7 +67,7 @@ minetest.register_node("brazutec:cub_aberto", {
 		meta:set_string("dono", player)
 	end,
 	is_ground_content = true,
-	groups = {not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 	drop = "brazutec:cub_fechado",
 })
@@ -117,7 +117,7 @@ minetest.register_node("brazutec:cub_fechado", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_fechado",
-	groups = {oddly_breakable_by_hand=3},
+	groups = {attached_node=1, oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -177,7 +177,7 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -236,6 +236,6 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
 	sounds = default.node_sound_stone_defaults(),
 })
