@@ -162,7 +162,7 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) then
 			local item = itemstack:get_name()
-			if item == brazutec_baterialaptop then
+			if item == brazutec_computador_baterialaptop then
 				itemstack:take_item()
 				node.name = "brazutec:cub_aberto"
 				minetest.env:set_node(pos, node)
