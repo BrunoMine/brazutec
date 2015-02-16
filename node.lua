@@ -14,9 +14,12 @@ end
 minetest.register_node("brazutec:cub_aberto", {
 	description = "Laptop CUB",
 	drawtype = "nodebox",
-    paramtype = "light",
-    paramtype2 = "facedir",
-    tiles = {
+	 paramtype = "light",
+	paramtype2 = "facedir",
+	sunlight_propagates = true,
+	light_source = LIGHT_MAX,
+	walkable = false,
+	tiles = {
 			"brazutec_laptop_cima_aberto.png", -- Cima
 			"brazutec_laptop_lado.png", -- Baixo
 			"brazutec_laptop_lado.png", -- Lado direito
@@ -76,9 +79,12 @@ minetest.register_node("brazutec:cub_aberto", {
 minetest.register_node("brazutec:cub_fechado", {
 	description = "Laptop CUB",
 	drawtype = "nodebox",
-    paramtype = "light",
-    paramtype2 = "facedir",
-    tiles = {
+	paramtype = "light",
+	paramtype2 = "facedir",
+	sunlight_propagates = true,
+	light_source = LIGHT_MAX,
+	walkable = false,
+	tiles = {
 			"brazutec_laptop_cima_fechado.png", -- Cima
 			"brazutec_laptop_lado.png", -- Baixo
 			"brazutec_laptop_lado.png", -- Lado direito
@@ -125,9 +131,12 @@ minetest.register_node("brazutec:cub_fechado", {
 minetest.register_node("brazutec:cub_descarregado_aberto", {
 	description = "Laptop CUB (Descarregado)",
 	drawtype = "nodebox",
-    paramtype = "light",
-    paramtype2 = "facedir",
-    tiles = {
+	paramtype = "light",
+	paramtype2 = "facedir",
+	sunlight_propagates = true,
+	light_source = LIGHT_MAX,
+	walkable = false,
+	tiles = {
 			"brazutec_laptop_cima_aberto_descarregado.png", -- Cima
 			"brazutec_laptop_lado.png", -- Baixo
 			"brazutec_laptop_lado.png", -- Lado direito
@@ -157,8 +166,8 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 			nodeupdate(pos)
 			meta:set_string("dono", clicker:get_player_name())
 		end
-    end,
-    on_rightclick = function (pos, node, clicker, itemstack)
+	end,
+	on_rightclick = function (pos, node, clicker, itemstack)
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) then
 			local item = itemstack:get_name()
@@ -170,8 +179,8 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 				meta:set_string("dono", clicker:get_player_name())
 			end
 		end
-    end,
-    can_dig = function(pos, player)
+	end,
+	can_dig = function(pos, player)
 		local meta = minetest.get_meta(pos)
 		return verificar_dono(meta, player)
 	end,
@@ -185,9 +194,12 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 minetest.register_node("brazutec:cub_descarregado_fechado", {
 	description = "Laptop CUB (Descarregado)",
 	drawtype = "nodebox",
-    paramtype = "light",
-    paramtype2 = "facedir",
-    tiles = {
+	paramtype = "light",
+	paramtype2 = "facedir",
+	sunlight_propagates = true,
+	light_source = LIGHT_MAX,
+	walkable = false,
+	tiles = {
 			"brazutec_laptop_cima_fechado.png", -- Cima
 			"brazutec_laptop_lado.png", -- Baixo
 			"brazutec_laptop_lado.png", -- Lado direito
