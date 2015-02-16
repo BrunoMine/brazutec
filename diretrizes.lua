@@ -7,7 +7,7 @@
 --
 
 -- Definir qual item carrega o laptop (deve ser o valor da string do item)
-brazutec_computador_baterialaptop = "brazutec:bateria"
+local brazutec_computador_baterialaptop = "brazutec:bateria"
 
 --Definir tempo (em segundos) para o laptop BUC descarregar (1 hora equivale a 3600 segundos)
-brazutec_computador_tempo_para_descarregar = "3600"
+local brazutec_computador_tempo_para_descarregar = "3600"
