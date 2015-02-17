@@ -81,8 +81,6 @@ minetest.register_node("brazutec:cub_fechado", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	sunlight_propagates = true,
-	light_source = LIGHT_MAX,
 	walkable = false,
 	tiles = {
 			"brazutec_laptop_cima_fechado.png", -- Cima
@@ -133,8 +131,6 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	sunlight_propagates = true,
-	light_source = LIGHT_MAX,
 	walkable = false,
 	tiles = {
 			"brazutec_laptop_cima_aberto_descarregado.png", -- Cima
@@ -196,8 +192,6 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	sunlight_propagates = true,
-	light_source = LIGHT_MAX,
 	walkable = false,
 	tiles = {
 			"brazutec_laptop_cima_fechado.png", -- Cima
