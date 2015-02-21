@@ -14,7 +14,7 @@ end
 minetest.register_node("brazutec:cub_aberto", {
 	description = "Laptop CUB",
 	drawtype = "nodebox",
-	 paramtype = "light",
+	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
 	light_source = LIGHT_MAX,
@@ -36,6 +36,7 @@ minetest.register_node("brazutec:cub_aberto", {
 	on_construct = function(pos, placer)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("dono", "")
+		meta:set_string("acessib", "fechada")
 	end,
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
@@ -43,7 +44,7 @@ minetest.register_node("brazutec:cub_aberto", {
 	end,
 	on_punch = function (pos, node, clicker)
 		local meta = minetest.get_meta(pos)
-		if verificar_dono(meta, clicker) then
+		if verificar_dono(meta, clicker) or meta:get_string("acessib") == "aberta" then
 			node.name = "brazutec:cub_fechado"
 			minetest.env:set_node(pos, node)
 			nodeupdate(pos)
@@ -52,8 +53,9 @@ minetest.register_node("brazutec:cub_aberto", {
     end,
     on_rightclick = function (pos, node, clicker)
 		local meta = minetest.get_meta(pos)
-		if verificar_dono(meta, clicker) then
-			minetest.show_formspec(clicker:get_player_name(), "brazutec_laptop", brazutec_laptop.desktop)
+		if verificar_dono(meta, clicker) or meta:get_string("acessib") == "aberta" then
+		local formname = minetest.serialize(pos)
+			minetest.show_formspec(clicker:get_player_name(), formname, brazutec_laptop.desktop)
 		end
     end,
     can_dig = function(pos, player)
@@ -98,6 +100,7 @@ minetest.register_node("brazutec:cub_fechado", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("dono", "")
+		meta:set_string("acessib", "fechada")
 	end,
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
@@ -149,6 +152,7 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("dono", "")
+		meta:set_string("acessib", "fechada")
 	end,
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
@@ -209,6 +213,7 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("dono", "")
+		meta:set_string("acessib", "fechada")
 	end,
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
