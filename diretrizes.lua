@@ -1,6 +1,3 @@
--- Interface principal do Laptop
-
--- Slots de aplicativos do laptop
 --
 -- Diretrizes para definir
 -- (Voce pode definir algumas partes do mod como achar necessario)
