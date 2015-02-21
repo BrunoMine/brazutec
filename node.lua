@@ -115,7 +115,8 @@ minetest.register_node("brazutec:cub_fechado", {
 			meta:set_string("dono", clicker:get_player_name())
 			meta:set_int("tempo_bateria", 0)
 			local tempo  = minetest.get_node_timer(pos)
-			tempo:start(brazutec_computador_tempo_para_descarregar)
+			local tempo_para_descarregar = brazutec_computador_tempo_para_descarregar*60
+			tempo:start(tempo_para_descarregar)
 		end
     end,
     can_dig = function(pos, player)
