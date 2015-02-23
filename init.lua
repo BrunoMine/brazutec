@@ -1,6 +1,6 @@
 --[[
 
-Mod Brazutec 1.0
+Mod Brazutec 1.5
 Desenvolvido por BrunoMine da Comunidade Minetestbr <http://minetestbr.blogspot.com.br/>
 Git de colaboração e desenvolvimento <https://github.com/BrunoMine/brazutec/>
 
