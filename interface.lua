@@ -32,6 +32,16 @@ brazutec_laptop = {
 			"image_button[0.5,1;3,3;brazutec_botao_acessibilidade.png;brazutec_acessib_fechada_etiqueta;]"..
 			"image_button[3.5,1;3,3;brazutec_botao_acessibilidade_aberta.png;brazutec_acessib_aberta_etiqueta;]"..
 			"image[0,0;8.5,5;brazutec_fundo_verde.png]",
+	acessibdes = "size[12,9]".. -- Tela de acessibilidade destravada
+			"bgcolor[#080808BB;true]"..
+			"image[0,0;15,10;brazutec_desktop.png]"..
+			"label[5.3,4;ACESSO DESTRAVADO]"..
+			"image[2,2;4,4;brazutec_botao_acessibilidade_aberta.png]",
+	acessibtra = "size[12,9]".. -- Tela de acessibilidade travada
+			"bgcolor[#080808BB;true]"..
+			"image[0,0;15,10;brazutec_desktop.png]"..
+			"label[5.3,4;ACESSO TRAVADO]"..
+			"image[2,2;4,4;brazutec_botao_acessibilidade.png]",
 }
 
 -- Instalador de aplicativos
@@ -161,7 +171,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, player) then
 			meta:set_string("acessib", "aberta")
-			minetest.show_formspec(player:get_player_name(), formname, brazutec_laptop.desktop)
+			minetest.show_formspec(player:get_player_name(), formname, brazutec_laptop.acessibdes)
+			minetest.after(1.5, minetest.show_formspec,player:get_player_name(), formname, brazutec_laptop.desktop)
 		end
 	end
 	if fields.brazutec_acessib_fechada_etiqueta then
@@ -170,7 +181,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		if verificar_dono(meta, player) then
 			meta:set_string("acessib", "fechada")
 			local formname = minetest.serialize(pos)
-			minetest.show_formspec(player:get_player_name(), formname, brazutec_laptop.desktop)
+			minetest.show_formspec(player:get_player_name(), formname, brazutec_laptop.acessibtra)
+			minetest.after(1.5, minetest.show_formspec,player:get_player_name(), formname, brazutec_laptop.desktop)
 		end
 	end
 end)
