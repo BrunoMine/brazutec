@@ -48,7 +48,6 @@ minetest.register_node("brazutec:cub_aberto", {
 			node.name = "brazutec:cub_fechado"
 			minetest.env:set_node(pos, node)
 			nodeupdate(pos)
-			meta:set_string("dono", clicker:get_player_name())
 		end
     end,
     on_rightclick = function (pos, node, clicker)
