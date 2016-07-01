@@ -3,22 +3,22 @@
 --
 
 -- Slots de aplicativos do laptop
-local brazutec_slot1_imagem = ""
-local brazutec_slot1_etiqueta = ""
-local brazutec_slot2_imagem = ""
-local brazutec_slot2_etiqueta = ""
-local brazutec_slot3_imagem = ""
-local brazutec_slot3_etiqueta = ""
-local brazutec_slot4_imagem = ""
-local brazutec_slot4_etiqueta = ""
-local brazutec_slot5_imagem = ""
-local brazutec_slot5_etiqueta = ""
-local brazutec_slot6_imagem = ""
-local brazutec_slot6_etiqueta = ""
+brazutec_slot1_imagem = ""
+brazutec_slot1_etiqueta = ""
+brazutec_slot2_imagem = ""
+brazutec_slot2_etiqueta = ""
+brazutec_slot3_imagem = ""
+brazutec_slot3_etiqueta = ""
+brazutec_slot4_imagem = ""
+brazutec_slot4_etiqueta = ""
+brazutec_slot5_imagem = ""
+brazutec_slot5_etiqueta = ""
+brazutec_slot6_imagem = ""
+brazutec_slot6_etiqueta = ""
 brazutec_laptop = {
 	desktop = "size[12,9]"..
 			"bgcolor[#080808BB;true]"..
-			"image[0,0;15,10;brazutec_desktop.png]"..
+			"background[0,0;12,9;brazutec_desktop.png]"..
 			"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 			"image_button[10.3,6.8;2,2;brazutec_botao_semapps.png;brazutec_semapps_etiqueta;]",
 	semapps = "size[5,6.5]".. -- Tela de aviso 'Sem Apps'
@@ -26,20 +26,20 @@ brazutec_laptop = {
 			"image[0.5,1;5,5;brazutec_botao_semapps.png]"..
 			"label[0.5,5.5;Encontre aplicativos no site]"..
 			"label[0.5,6;brazutec.blogspot.com]",
-	acessib = "size[8,4]".. -- Tela de configurar acessibilidade
+	acessib = "size[7,4]".. -- Tela de configurar acessibilidade
 			"bgcolor[#080808BB;true]"..
+			"background[0,0;8.5,5;brazutec_fundo_verde.png;true]"..
 			"label[0.5,0.25;Configurar Acessibilidade]"..
 			"image_button[0.5,1;3,3;brazutec_botao_acessibilidade.png;brazutec_acessib_fechada_etiqueta;]"..
-			"image_button[3.5,1;3,3;brazutec_botao_acessibilidade_aberta.png;brazutec_acessib_aberta_etiqueta;]"..
-			"image[0,0;8.5,5;brazutec_fundo_verde.png]",
+			"image_button[3.5,1;3,3;brazutec_botao_acessibilidade_aberta.png;brazutec_acessib_aberta_etiqueta;]",
 	acessibdes = "size[12,9]".. -- Tela de acessibilidade destravada
 			"bgcolor[#080808BB;true]"..
-			"image[0,0;15,10;brazutec_desktop.png]"..
+			"background[0,0;12,9;brazutec_desktop.png]"..
 			"label[5.3,4;ACESSO DESTRAVADO]"..
 			"image[2,2;4,4;brazutec_botao_acessibilidade_aberta.png]",
 	acessibtra = "size[12,9]".. -- Tela de acessibilidade travada
 			"bgcolor[#080808BB;true]"..
-			"image[0,0;15,10;brazutec_desktop.png]"..
+			"background[0,0;12,9;brazutec_desktop.png]"..
 			"label[5.3,4;ACESSO TRAVADO]"..
 			"image[2,2;4,4;brazutec_botao_acessibilidade.png]",
 }
@@ -51,7 +51,7 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 		brazutec_slot1_etiqueta = etiqueta
 		brazutec_laptop.desktop = "size[12,9]"..
 			"bgcolor[#080808BB;true]"..
-			"image[0,0;15,10;brazutec_desktop.png]"..
+			"background[0,0;12,9;brazutec_desktop.png]"..
 			"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 			"image_button[1,1.5;3,3;"..brazutec_slot1_imagem..";"..brazutec_slot1_etiqueta..";]"
 	 else
@@ -60,7 +60,7 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 			brazutec_slot2_etiqueta = etiqueta
 			brazutec_laptop.desktop = "size[12,9]"..
 				"bgcolor[#080808BB;true]"..
-				"image[0,0;15,10;brazutec_desktop.png]"..
+				"background[0,0;12,9;brazutec_desktop.png]"..
 				"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 				"image_button[1,1.5;3,3;"..brazutec_slot1_imagem..";"..brazutec_slot1_etiqueta..";]"..
 				"image_button[2,4.5;3,3;"..brazutec_slot2_imagem..";"..brazutec_slot2_etiqueta..";]"
@@ -70,7 +70,7 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 				brazutec_slot3_etiqueta = etiqueta
 				brazutec_laptop.desktop = "size[12,9]"..
 					"bgcolor[#080808BB;true]"..
-					"image[0,0;15,10;brazutec_desktop.png]"..
+					"background[0,0;12,9;brazutec_desktop.png]"..
 					"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 					"image_button[1,1.5;3,3;"..brazutec_slot1_imagem..";"..brazutec_slot1_etiqueta..";]"..
 					"image_button[2,4.5;3,3;"..brazutec_slot2_imagem..";"..brazutec_slot2_etiqueta..";]"..
@@ -81,7 +81,7 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 					brazutec_slot4_etiqueta = etiqueta
 					brazutec_laptop.desktop = "size[12,9]"..
 							"bgcolor[#080808BB;true]"..
-							"image[0,0;15,10;brazutec_desktop.png]"..
+							"background[0,0;12,9;brazutec_desktop.png]"..
 							"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 							"image_button[1,1.5;3,3;"..brazutec_slot1_imagem..";"..brazutec_slot1_etiqueta..";]"..
 							"image_button[2,4.5;3,3;"..brazutec_slot2_imagem..";"..brazutec_slot2_etiqueta..";]"..
@@ -93,7 +93,7 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 						brazutec_slot5_etiqueta = etiqueta
 						brazutec_laptop.desktop = "size[12,9]"..
 								"bgcolor[#080808BB;true]"..
-								"image[0,0;15,10;brazutec_desktop.png]"..
+								"background[0,0;12,9;brazutec_desktop.png]"..
 								"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 								"image_button[1,1.5;3,3;"..brazutec_slot1_imagem..";"..brazutec_slot1_etiqueta..";]"..
 								"image_button[2,4.5;3,3;"..brazutec_slot2_imagem..";"..brazutec_slot2_etiqueta..";]"..
@@ -106,7 +106,7 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 							brazutec_slot6_etiqueta = etiqueta
 								brazutec_laptop.desktop = "size[12,9]"..
 										"bgcolor[#080808BB;true]"..
-										"image[0,0;15,10;brazutec_desktop.png]"..
+										"background[0,0;12,9;brazutec_desktop.png]"..
 										"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 										"image_button[1,1.5;3,3;"..brazutec_slot1_imagem..";"..brazutec_slot1_etiqueta..";]"..
 										"image_button[2,4.5;3,3;"..brazutec_slot2_imagem..";"..brazutec_slot2_etiqueta..";]"..
@@ -119,7 +119,7 @@ function brazutec_instalar_em_cub(textura, etiqueta)
 						 	-- Excesso de aplicativos
 						 	brazutec_laptop.desktop = "size[12,9]"..
 										"bgcolor[#080808BB;true]"..
-										"image[0,0;15,10;brazutec_desktop.png]"..
+										"background[0,0;12,9;brazutec_desktop.png]"..
 										"image_button[0,0;1.5,1.5;brazutec_botao_acessibilidade.png;brazutec_acessib_etiqueta;]"..
 										"image_button[1,1.5;3,3;"..brazutec_slot1_imagem..";"..brazutec_slot1_etiqueta..";]"..
 										"image_button[2,4.5;3,3;"..brazutec_slot2_imagem..";"..brazutec_slot2_etiqueta..";]"..
@@ -152,6 +152,7 @@ end
 
 -- Funcoes dos botoes para ocorrencias
 minetest.register_on_player_receive_fields(function(player, formname, fields)
+	minetest.chat_send_all(dump(brazutec_laptop.desktop))
 	if fields.brazutec_semapps_etiqueta then
 		minetest.show_formspec(player:get_player_name(), "brazutec_laptop", brazutec_laptop.semapps)
 	end
@@ -182,7 +183,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			meta:set_string("acessib", "fechada")
 			local formname = minetest.serialize(pos)
 			minetest.show_formspec(player:get_player_name(), formname, brazutec_laptop.acessibtra)
-			minetest.after(1.5, minetest.show_formspec,player:get_player_name(), formname, brazutec_laptop.desktop)
+			minetest.after(1.5, minetest.show_formspec, player:get_player_name(), formname, brazutec_laptop.desktop)
 		end
 	end
 end)
