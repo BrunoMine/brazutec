@@ -152,7 +152,6 @@ end
 
 -- Funcoes dos botoes para ocorrencias
 minetest.register_on_player_receive_fields(function(player, formname, fields)
-	minetest.chat_send_all(dump(brazutec_laptop.desktop))
 	if fields.brazutec_semapps_etiqueta then
 		minetest.show_formspec(player:get_player_name(), "brazutec_laptop", brazutec_laptop.semapps)
 	end
