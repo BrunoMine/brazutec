@@ -10,6 +10,25 @@ local function verificar_dono(meta, player)
 	return true
 end
 
+-- Trocar node
+local tocar_node = function(pos, nodename)
+	-- Pegar node
+	local node = minetest.get_node(pos)
+	
+	-- Pegar metadados
+	local meta = minetest.get_meta(pos)
+	local tb = meta:to_table() -- salva metadados numa tabela
+	
+	-- Altera o node
+	node.name = nodename -- Altera o nome
+	minetest.env:set_node(pos, node) -- atualiza a coordenada com os novo parametros no banco de dados
+	nodeupdate(pos) -- Atualiza o mundo carregado
+	
+	-- Restaurar metadados
+	minetest.get_meta(pos):from_table(tb)
+
+end
+
 -- CUB aberto
 minetest.register_node("brazutec:cub_aberto", {
 	description = "Laptop CUB",
@@ -45,19 +64,17 @@ minetest.register_node("brazutec:cub_aberto", {
 	on_punch = function (pos, node, clicker)
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) or meta:get_string("acessib") == "aberta" then
-			node.name = "brazutec:cub_fechado"
-			minetest.env:set_node(pos, node)
-			nodeupdate(pos)
+			tocar_node(pos, "brazutec:cub_fechado")
 		end
-    end,
-    on_rightclick = function (pos, node, clicker)
+	end,
+	on_rightclick = function (pos, node, clicker)
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) or meta:get_string("acessib") == "aberta" then
 		local formname = minetest.serialize(pos)
 			minetest.show_formspec(clicker:get_player_name(), formname, brazutec_laptop.desktop)
 		end
-    end,
-    can_dig = function(pos, player)
+	end,
+	can_dig = function(pos, player)
 		local meta = minetest.get_meta(pos)
 		return verificar_dono(meta, player)
 	end,
@@ -71,7 +88,7 @@ minetest.register_node("brazutec:cub_aberto", {
 		meta:set_string("dono", player)
 	end,
 	is_ground_content = true,
-	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=1},
 	sounds = default.node_sound_stone_defaults(),
 	drop = "brazutec:cub_fechado",
 })
@@ -124,7 +141,7 @@ minetest.register_node("brazutec:cub_fechado", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_fechado",
-	groups = {attached_node=1, oddly_breakable_by_hand=3},
+	groups = {attached_node=1, oddly_breakable_by_hand=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -186,7 +203,7 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=1},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -247,6 +264,6 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=3},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=1},
 	sounds = default.node_sound_stone_defaults(),
 })
