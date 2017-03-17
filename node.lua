@@ -21,7 +21,7 @@ local tocar_node = function(pos, nodename)
 	
 	-- Altera o node
 	node.name = nodename -- Altera o nome
-	minetest.env:set_node(pos, node) -- atualiza a coordenada com os novo parametros no banco de dados
+	minetest.set_node(pos, node) -- atualiza a coordenada com os novo parametros no banco de dados
 	nodeupdate(pos) -- Atualiza o mundo carregado
 	
 	-- Restaurar metadados
@@ -36,7 +36,7 @@ minetest.register_node("brazutec:cub_aberto", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	sunlight_propagates = true,
-	light_source = LIGHT_MAX,
+	light_source = 2,
 	walkable = false,
 	tiles = {
 			"brazutec_laptop_cima_aberto.png", -- Cima
@@ -83,12 +83,12 @@ minetest.register_node("brazutec:cub_aberto", {
 		local player = meta:get_string("dono")
 		local node = minetest.get_node(pos)
 		node.name = "brazutec:cub_descarregado_aberto"
-		minetest.env:set_node(pos, node)
+		minetest.set_node(pos, node)
 		nodeupdate(pos)
 		meta:set_string("dono", player)
 	end,
 	is_ground_content = true,
-	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=1},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=2},
 	sounds = default.node_sound_stone_defaults(),
 	drop = "brazutec:cub_fechado",
 })
@@ -126,7 +126,7 @@ minetest.register_node("brazutec:cub_fechado", {
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) then
 			node.name = "brazutec:cub_aberto"
-			minetest.env:set_node(pos, node)
+			minetest.set_node(pos, node)
 			nodeupdate(pos)
 			meta:set_string("dono", clicker:get_player_name())
 			meta:set_int("tempo_bateria", 0)
@@ -141,7 +141,7 @@ minetest.register_node("brazutec:cub_fechado", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_fechado",
-	groups = {attached_node=1, oddly_breakable_by_hand=1},
+	groups = {attached_node=1, oddly_breakable_by_hand=2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -179,7 +179,7 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) then
 			node.name = "brazutec:cub_descarregado_fechado"
-			minetest.env:set_node(pos, node)
+			minetest.set_node(pos, node)
 			nodeupdate(pos)
 			meta:set_string("dono", clicker:get_player_name())
 		end
@@ -191,7 +191,7 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 			if item == brazutec_computador_baterialaptop then
 				itemstack:take_item()
 				node.name = "brazutec:cub_aberto"
-				minetest.env:set_node(pos, node)
+				minetest.set_node(pos, node)
 				nodeupdate(pos)
 				meta:set_string("dono", clicker:get_player_name())
 			end
@@ -203,7 +203,7 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=1},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=2},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -240,7 +240,7 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 		local meta = minetest.get_meta(pos)
 		if verificar_dono(meta, clicker) then
 			node.name = "brazutec:cub_descarregado_aberto"
-			minetest.env:set_node(pos, node)
+			minetest.set_node(pos, node)
 			nodeupdate(pos)
 			meta:set_string("dono", clicker:get_player_name())
 		end
@@ -252,7 +252,7 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 			if item == brazutec_computador_baterialaptop then
 				itemstack:take_item()
 				node.name = "brazutec:cub_aberto"
-				minetest.env:set_node(pos, node)
+				minetest.set_node(pos, node)
 				nodeupdate(pos)
 				meta:set_string("dono", clicker:get_player_name())
 			end
@@ -264,6 +264,6 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 	end,
 	is_ground_content = true,
 	drop = "brazutec:cub_descarregado_fechado",
-	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=1},
+	groups = {attached_node=1, not_in_creative_inventory = 1, oddly_breakable_by_hand=2},
 	sounds = default.node_sound_stone_defaults(),
 })
