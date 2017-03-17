@@ -22,7 +22,6 @@ local tocar_node = function(pos, nodename)
 	-- Altera o node
 	node.name = nodename -- Altera o nome
 	minetest.set_node(pos, node) -- atualiza a coordenada com os novo parametros no banco de dados
-	nodeupdate(pos) -- Atualiza o mundo carregado
 	
 	-- Restaurar metadados
 	minetest.get_meta(pos):from_table(tb)
@@ -84,7 +83,6 @@ minetest.register_node("brazutec:cub_aberto", {
 		local node = minetest.get_node(pos)
 		node.name = "brazutec:cub_descarregado_aberto"
 		minetest.set_node(pos, node)
-		nodeupdate(pos)
 		meta:set_string("dono", player)
 	end,
 	is_ground_content = true,
@@ -127,7 +125,6 @@ minetest.register_node("brazutec:cub_fechado", {
 		if verificar_dono(meta, clicker) then
 			node.name = "brazutec:cub_aberto"
 			minetest.set_node(pos, node)
-			nodeupdate(pos)
 			meta:set_string("dono", clicker:get_player_name())
 			meta:set_int("tempo_bateria", 0)
 			local tempo  = minetest.get_node_timer(pos)
@@ -180,7 +177,6 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 		if verificar_dono(meta, clicker) then
 			node.name = "brazutec:cub_descarregado_fechado"
 			minetest.set_node(pos, node)
-			nodeupdate(pos)
 			meta:set_string("dono", clicker:get_player_name())
 		end
 	end,
@@ -192,7 +188,6 @@ minetest.register_node("brazutec:cub_descarregado_aberto", {
 				itemstack:take_item()
 				node.name = "brazutec:cub_aberto"
 				minetest.set_node(pos, node)
-				nodeupdate(pos)
 				meta:set_string("dono", clicker:get_player_name())
 			end
 		end
@@ -241,7 +236,6 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 		if verificar_dono(meta, clicker) then
 			node.name = "brazutec:cub_descarregado_aberto"
 			minetest.set_node(pos, node)
-			nodeupdate(pos)
 			meta:set_string("dono", clicker:get_player_name())
 		end
     end,
@@ -253,7 +247,6 @@ minetest.register_node("brazutec:cub_descarregado_fechado", {
 				itemstack:take_item()
 				node.name = "brazutec:cub_aberto"
 				minetest.set_node(pos, node)
-				nodeupdate(pos)
 				meta:set_string("dono", clicker:get_player_name())
 			end
 		end
